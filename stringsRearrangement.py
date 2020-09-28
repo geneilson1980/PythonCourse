@@ -5,24 +5,15 @@ def stringsRearrangement(inputArray):
     tempList = [inputArray]
     x = len(inputArray)
     i = 0
+    j = 0
+    posI = 0
     count = 0
-    while i < len(inputArray):
-        a = inputArray[i]
-        b = inputArray[i+1]
-        c = a[0]
-        for k in len(a):
-            if a[k] != b[k]:
-                count += 1
-
-
-        # if i == len(inputArray)-1:
-        #     i = 0
-        # #     continue
-
-        # j = 2
-        # tempList[i].append(inputArray[j-1])
-        i += 1
-
+    while i < len(inputArray)-1:
+        tempList.append([tempList[i][posI]])
+        while j < len(inputArray)-2:
+            temp = tempList[i][j+1]
+            tempList[i+1].append(tempList[i][j+2])
+            j += 1
 
 
     return expectectResult

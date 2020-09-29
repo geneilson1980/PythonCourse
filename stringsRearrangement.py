@@ -1,24 +1,25 @@
-import difflib
+from itertools import permutations
+import functools
 
 def stringsRearrangement(inputArray):
-    expectectResult = False
-    tempList = [inputArray]
-    x = len(inputArray)
-    i = 0
-    j = 0
-    posI = 0
-    count = 0
-    while i < len(inputArray)-1:
-        tempList.append([tempList[i][posI]])
-        while j < len(inputArray)-2:
-            temp = tempList[i][j+1]
-            tempList[i+1].append(tempList[i][j+2])
-            j += 1
-
-
+    expectectResult = True
+    newList = list(permutations(inputArray))
+    x = len(newList)
+    y = len(newList[0])
+    # reduce = 0
+    for i in range(len(newList)):
+        for j in range(len(newList[0])-1):
+            a = newList[i][j]
+            b = newList[i][j+1]
+            c = functools.reduce(lambda x, y: x + 1 if y[0] != y[1] else x, zip(a, b), 0)
+            if c > 1:
+                expectectResult = False
+                break
+        if c == 0 or c == 1:
+            expectectResult = True
+            return expectectResult
     return expectectResult
 
-
-inputArray =["ab",  "ad",  "ef", "eg"]
+inputArray = ["abc", "abx", "axx", "abc"]
 result = stringsRearrangement(inputArray)
 print(result)

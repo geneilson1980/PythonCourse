@@ -18,3 +18,19 @@ def stringsRearrangement(inputArray):
 inputArray = ["abc", "abx", "axx", "abc"]
 result = stringsRearrangement(inputArray)
 print(result)
+
+
+# Formula
+# nPr = n!         4!       4.3.2.1     24     
+#      ------  = -------- = -------- = ---- =  24 (24 different permutations )
+#      (n-r)!      (4-3)!       1        1  
+
+# ZIP function: Join two tuples together
+# https://www.w3schools.com/python/ref_func_zip.asp
+
+# Reduce Function: This function accepts a function and a sequence and returns a single value calculated 
+# https://stackoverflow.com/questions/12226846/count-letter-differences-of-two-strings/40653556
+# https://www.geeksforgeeks.org/reduce-in-python/
+
+# Lambda Function: A lambda function is a small anonymous function. It can take any number of arguments, but can only have one expression.
+# https://www.w3schools.com/python/python_lambda.asp

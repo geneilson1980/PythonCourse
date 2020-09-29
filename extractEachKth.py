@@ -1,16 +1,11 @@
 def extractEachKth(inputArray, k):
-    countK = 1
     newInputarray = []
-    for i in range(len(inputArray)):
-        test = inputArray[i]
-        if countK == k:
-            countK = 1
-        else:
-            newInputarray.append(inputArray[i])
-            countK += 1
+    for i in range(1, len(inputArray)+1):
+        if i % k != 0:
+            newInputarray.append(inputArray[i-1])
     return newInputarray
 
-inputArray = [2, 4, 6, 8, 10]
-k = 2
+inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+k = 3
 result = extractEachKth(inputArray, k)
 print(result)

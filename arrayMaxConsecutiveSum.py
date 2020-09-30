@@ -1,23 +1,23 @@
 def arrayMaxConsecutiveSum(inputArray, k):
+    newInput = inputArray.copy()
     expectedOutput = 0
     sumTemp = 0
-    factor = 1
+    factor = 0
     for i in range(len(inputArray)):
-        if factor == k:
-            if sumTemp > expectedOutput:
-                expectedOutput = sumTemp 
-                factor = 1
-        else:
-            sumTemp += inputArray[i]
-            if i + k == len(inputArray):
-                if sumTemp > expectedOutput:
-                    expectedOutput = sumTemp
-                return expectedOutput                
-            else:
-                factor += 1
-    return expectedOutput
+        for j in range(k):
+            x = newInput[j]
+            sumTemp += newInput[j]
+            factor += 1
+            if sumTemp > expectedOutput and factor == k:
+                expectedOutput = sumTemp            
+        newInput.remove(newInput[0])
+        sumTemp = 0
+        factor = 0
+        if len(newInput) < k:
+            return expectedOutput
+
 
 inputArray = [1, 3, 2, 4]
 k = 3
-result = arrayMaxConsecutiveSum(inputArray, 3)
+result = arrayMaxConsecutiveSum(inputArray, k)
 print(result)

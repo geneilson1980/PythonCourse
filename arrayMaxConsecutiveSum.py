@@ -5,7 +5,8 @@ def arrayMaxConsecutiveSum(inputArray, k):
     for i in range(k):
         sumTemp += inputArray[i]
     expectedOutput = sumTemp
-    for j in range(1, len(inputArray)-1):
+    # for j in range(1, len(inputArray)-1):
+    for j in range(1, len(inputArray)-(k-1)):
         sumTemp = sumTemp - inputArray[j-1]
         x = inputArray[j+(k-1)]
         sumTemp = sumTemp + inputArray[j+(k-1)]
@@ -13,8 +14,8 @@ def arrayMaxConsecutiveSum(inputArray, k):
             expectedOutput = sumTemp
         z = (j + (k-1)) 
         w = len(inputArray)-1
-        if (j + (k-1)) >= len(inputArray)-1:
-            return expectedOutput
+        # if (j + (k-1)) >= len(inputArray)-1:
+        #     return expectedOutput
     return expectedOutput
 
 inputArray = [3, 2, 1, 1]

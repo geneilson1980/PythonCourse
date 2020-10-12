@@ -1,19 +1,13 @@
 def longestDigitsPrefix(inputString):
-    tempString = ''
     expectedOutput = ''
     for i in range(len(inputString)):
-        a = inputString.find(' ')
-        if inputString.find(' ') != -1:
-            return expectedOutput
         currentValue = inputString[i]
-        if currentValue.isnumeric():
-            tempString += currentValue
-            if len(tempString) > len(expectedOutput):
-                expectedOutput = tempString
+        if not(currentValue.isnumeric()):
+            return expectedOutput
         else:
-            tempString = ''
+            expectedOutput += currentValue
     return expectedOutput
 
-inputString = "always"
+inputString = "aaaaaaa"
 result = longestDigitsPrefix(inputString)
 print(result)

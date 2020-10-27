@@ -5,18 +5,24 @@ def isBeautifulString(inputString):
     for char in inputString:
         if char not in uniqueValues:
             uniqueValues.append(char)
+    uniqueValues.sort()
     for i in range(len(uniqueValues)):
-        string1 = uniqueValues[i]
-        string2 = alphabet[i+1]
-        countVaule1 = inputString.count(string1)
-        countVaule2 = inputString.count(string2)
-        if countVaule1 != countVaule2:
+        char1 = uniqueValues[i]
+        if char1 == 'a':
+            continue
+        indexInDict = list(alphabet.keys())[list(alphabet.values()).index(char1)-1]
+        if alphabet[indexInDict] in inputString:
+            char2 = alphabet[indexInDict]
+        else:
+            expectedOutput = False
+            return expectedOutput
+        countVaule1 = inputString.count(char1)
+        countVaule2 = inputString.count(char2)
+        if not(countVaule1 <= countVaule2):
             expectedOutput = False
             return expectedOutput
     return expectedOutput
 
-inputString = "bbbaacdafe"
+inputString = "aabbb"
 result = isBeautifulString(inputString)
 print(result)
-
-# identify the letter in alphabet to fill out the string2 variable, after,I have to compare it normally.

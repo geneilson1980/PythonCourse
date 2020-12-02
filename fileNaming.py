@@ -17,7 +17,7 @@ def fileNaming(names):
 
 
 
-#names = ["doc", "doc", "image", "doc(1)", "doc"]
-names = []
+names = ["doc", "doc", "image", "doc(1)", "doc"]
+# names = []
 result = fileNaming(names)
 print(result)

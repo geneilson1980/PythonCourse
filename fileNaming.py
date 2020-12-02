@@ -2,8 +2,12 @@ def fileNaming(names):
     expectedOutput = []
     sequentialNumber = 1
     for value in names:
-        if value not in expectedOutput:
+        sequentialNumber = names.count(value)
+        if value in expectedOutput:
+            continue
+        elif sequentialNumber == 1:
             expectedOutput.append(value)
+<<<<<<< Updated upstream
         else:
             while True:
                 tempString = value + '(' + str(sequentialNumber) + ')'
@@ -13,6 +17,12 @@ def fileNaming(names):
                     break
                 else:
                     sequentialNumber += 1
+=======
+        elif sequentialNumber > 1:
+            expectedOutput.append(value)
+            for i in range(1, sequentialNumber):
+                expectedOutput.append(value + '(' + str(i) + ')')
+>>>>>>> Stashed changes
     return expectedOutput
 
 

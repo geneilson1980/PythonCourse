@@ -1,5 +1,5 @@
 def spiralNumbers(n):
-    newList = [[]* n for i in range(n)]
+    newList = [[]* n for i in range(n)] # it's recommended to create an empty 2d list with that way, instead of (example [[None]*3]*3)
     top = 0
     down = n-1
     left = 0
